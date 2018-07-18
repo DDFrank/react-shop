@@ -13,6 +13,12 @@ module.exports = {
         publicPath: '/dist/',
         filename: 'js/app.js'
     },
+    resolve: {
+        alias : {
+            page: path.resolve(__dirname, 'src/page'),
+            component: path.resolve(__dirname, 'src/component')
+        }
+    },
     module: {
         rules: [
         // react语法的处理
@@ -80,6 +86,10 @@ module.exports = {
         })
     ],
     devServer: {
-        port:8086
+        port:8086,
+        // 不匹配的路径全部去找这个页面，也就是不会出现404了
+        historyApiFallback : {
+            index:'/dist/index.html'
+        }
     }
 }

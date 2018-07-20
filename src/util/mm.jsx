@@ -46,10 +46,36 @@ class MUtil{
         
 
     }
-
     // 错误提示
     errorTips(errMsg) {
         alert(errMsg || '好像有哪里不对哟~');
+    }
+
+    //
+    setStorage(name, data) {
+        let excludeType = ['number', 'string', 'boolean'];
+        let dataType = typeof data;
+        if (dataType === 'object') {
+            window.localStorage.setItem(name, JSON.stringify(data));
+        } else if (excludeType.includes(dataType)) {
+            window.localStorage.setItem(name, data);
+        }else{
+            // 其它不支持的类型
+            alert('该类型不能用于本地存储');
+        }
+    }
+    // 取出存储内容
+    getStorage(name) {
+        let data = window.localStorage.getItem(name);
+        if (data){
+            return JSON.parse(data);
+        }else{
+            return null;
+        }
+    }
+    // 删除本地存储
+    removeStorage(name) {
+        window.localStorage.removeItem(name);
     }
 }
 

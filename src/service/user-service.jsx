@@ -10,7 +10,14 @@ class User {
             type: 'post',
             url: '/manage/user/login.do',
             data: loginInfo
-        })
+        });
+    }
+    // 退出登录
+    logout() {
+        return _mm.request({
+            type: 'post',
+            url: '/user/logout.do'
+        });
     }
     // 检查登录接口的数据是否合法
     checkLoginInfo(loginInfo) {

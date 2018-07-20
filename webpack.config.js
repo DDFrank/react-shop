@@ -100,6 +100,11 @@ module.exports = {
                 target: 'http://admintest.happymmall.com',
                 // 改变发送请求的源
                 changeOrigin: true
+            },
+            '/user/logout.do': {
+                target: 'http://admintest.happymmall.com',
+                // 改变发送请求的源
+                changeOrigin: true
             }
         }
     }

@@ -1,13 +1,14 @@
 import React from "react";
 import PageTitle from "component/page-title/index.jsx";
+import ListSearch from './product-list-search.jsx';
+import TableList from 'util/table-list.jsx';
 import Pagination from 'util/pagination.jsx';
 
 import { Link } from "react-router-dom"
 
 import MUtil from 'util/mm.jsx';
 import Product from 'service/product-service.jsx';
-import ListSearch from './product-list-search.jsx';
-import TableList from 'util/table-list.jsx';
+
  
 
 import './product.scss'
@@ -109,7 +110,14 @@ class ProductList extends React.Component {
         ];
         return (
             <div id="page-wrapper">
-                <PageTitle title="商品列表" />
+                <PageTitle title="商品列表">
+                    <div className="page-header-right">
+                        <Link className="btn btn-primary" to="/product/save">
+                            <i className="fa fa-plus"></i>
+                            添加商品
+                        </Link>
+                    </div>
+                </PageTitle>
                 <ListSearch onSearch={(searchType, searchKeyword) => { this.onSearch(searchType, searchKeyword)}}/>
                 <TableList tableHeaders={tableHeads}>
                     {

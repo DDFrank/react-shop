@@ -9,13 +9,15 @@ import Login from 'page/home/login.jsx';
 import UserList from 'page/user/user.jsx';
 import ErrorPage from 'page/error/error.jsx';
 
+import ProductList from 'page/product/productList.jsx';
+
 class App extends React.Component {
     render(){
         let LayoutRouter = (
             <Layout>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/product" component={Home} />
+                    <Route path="/product" component={ProductList} />
                     <Route path="/product.category" component={Home} />
                     <Route path="/user/index" component={UserList} />
                     <Redirect exact from="/user" to="/user/index" />

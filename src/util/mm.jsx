@@ -30,6 +30,14 @@ class MUtil{
             })
         });
     }
+    // 成功的提示
+    successTips(successMsg) {
+        alert(successMsg || '操作成功!');
+    }
+    // 错误提示
+    errorTips(errMsg) {
+        alert(errMsg || '操作失败');
+    }
     // 跳转登录页面
     doLogin() {
         // pathname 中可能有特殊字符需要转义

@@ -10,7 +10,7 @@ class MUtil{
                 url: param.url || '',
                 dataType: param.dataType || 'json',
                 data: param.data || null,
-                success(res) {
+                success: res => {
                     // 数据请求成功
                     if(0 === res.status) {
                         typeof resolve === 'function' && resolve(res.data, res.msg);
@@ -23,7 +23,7 @@ class MUtil{
                         typeof reject === 'function' && reject(res.msg || res.data);
                     }
                 },
-                error(error) {
+                error: error => {
                     // statusText 是HTTP的错误消息
                     typeof reject === 'function' && reject(error.statusText);
                 }
